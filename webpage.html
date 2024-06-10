@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Group Website</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .intro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 2em;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards, fadeOut 2s forwards 3s;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+        .line-animation {
+            width: 50%;
+            height: 2px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: lineMove 1s infinite alternate;
+        }
+        @keyframes lineMove {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(-150%);
+            }
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: fadeInContent 2s forwards 3s;
+        }
+        @keyframes fadeInContent {
+            to {
+                opacity: 1;
+            }
+        }
+        .grid-item {
+            width: 20%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease;
+            filter: saturate(30%);
+        }
+        .grid-item:hover img {
+            transform: scale(1.1);
+            filter: saturate(100%);
+        }
+        .grid-item:hover {
+            width: 30%;
+        }
+        .grid-item:hover ~ .grid-item {
+            width: 17%;
+        }
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: background 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), backdrop-filter 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+        }
+        .grid-item:hover::before {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(0);
+            opacity: 1;
+        }
+        .grid-item h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            margin: 0;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 2em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            transition: color 0.3s ease, opacity 0.3s ease;
+            text-align: center;
+            line-height: 1.5;
+            width: 150%;
+            opacity: 0;
+        }
+        .grid-item:hover h3 {
+            color: rgba(255, 230, 0, 0.8);
+            opacity: 0.7;
+        }
+        .grid-item a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-decoration: none;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">Welcome to Our Lab</div>
+    <div class="line-animation"></div>
+    <div class="container">
+        <div class="grid-item">
+            <img src="research.jpg" alt="Research">
+            <h3>Research Overview</h3>
+            <a href="#research"></a>
+        </div>
+        <div class="grid-item">
+            <img src="leader.jpg" alt="Leader">
+            <h3>Leader Introduction</h3>
+            <a href="#leader"></a>
+        </div>
+        <div class="grid-item">
+            <img src="team.jpg" alt="Team">
+            <h3>Team Members</h3>
+            <a href="#team"></a>
+        </div>
+        <div class="grid-item">
+            <img src="life.jpg" alt="Life">
+            <h3>Daily Life</h3>
+            <a href="#life"></a>
+        </div>
+        <div class="grid-item">
+            <img src="extra.jpg" alt="Extra">
+            <h3>Extra</h3>
+            <a href="#extra"></a>
+        </div>
+    </div>
+
+    <section id="research">
+        <!-- Research Overview content -->
+    </section>
+    <section id="leader">
+        <!-- Leader Introduction content -->
+    </section>
+    <section id="team">
+        <!-- Team Members content -->
+    </section>
+    <
